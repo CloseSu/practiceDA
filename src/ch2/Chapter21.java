@@ -7,14 +7,38 @@ import java.util.Map;
 
 public class Chapter21 {
 
-    public void removeRepeat(Node node){
+    public Node removeRepeat(Node node){
         Map<Integer, Integer> temp = new HashMap<>();
-        temp.put(node.value, node.value);
-        while (node != null && node.next != null){
-            if (temp.get(node.next.value) != null) {
-                node.next = node.next.next;
+        Node previous = null;
+        Node key = null;
+        while (node != null){
+          if (temp.get(node.value) == null) {
+              temp.put(node.value, node.value);
+              if (previous == null){
+                  previous = new Node(node.value);
+                  key = previous;
+              } else {
+                  key.next = new Node(node.value);
+                  key = key.next;
+              }
+
+          }
+          node = node.next;
+        }
+        return previous;
+    }
+
+    public void removeRepeatWithoutTemp(Node node) {
+        while (node != null && node.next != null) {
+            int value = node.value;
+            while (node.next != null && node.next.next != null) {
+                int valueNext = node.next.value;
+                System.out.println("value: " + value + " next value " + valueNext);
+                if (value == valueNext) {
+                    node.next = node.next.next;
+                }
+                node = node.next;
             }
-            temp.put(node.value, node.value);
             node = node.next;
         }
     }
