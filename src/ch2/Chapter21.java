@@ -1,46 +1,46 @@
 package ch2;
 
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.Map;
 
 public class Chapter21 {
 
     public Node removeRepeat(Node node){
         Map<Integer, Integer> temp = new HashMap<>();
-        Node previous = null;
-        Node key = null;
+        Node output = null;
+        Node iterator = null;
         while (node != null){
           if (temp.get(node.value) == null) {
               temp.put(node.value, node.value);
-              if (previous == null){
-                  previous = new Node(node.value);
-                  key = previous;
+              if (output == null){
+                  output = new Node(node.value);
+                  iterator = output;
               } else {
-                  key.next = new Node(node.value);
-                  key = key.next;
+                  iterator.next = new Node(node.value);
+                  iterator = iterator.next;
               }
 
           }
           node = node.next;
         }
-        return previous;
+        return output;
     }
 
     public void removeRepeatWithoutTemp(Node node) {
-        while (node != null && node.next != null) {
-            int value = node.value;
-            while (node.next != null && node.next.next != null) {
-                int valueNext = node.next.value;
-                System.out.println("value: " + value + " next value " + valueNext);
-                if (value == valueNext) {
-                    node.next = node.next.next;
+        Node current = node;
+        while (current != null) {
+            Node runner = current;
+            while (runner.next != null) {
+                if (runner.next.value == current.value) {
+                    runner.next = runner.next.next;
+                } else {
+                    runner = runner.next;
                 }
-                node = node.next;
+
             }
-            node = node.next;
+            current = current.next;
         }
+
     }
 
 }

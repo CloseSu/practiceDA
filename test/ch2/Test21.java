@@ -16,7 +16,7 @@ public class Test21 {
         Node node6 = new Node(2);
         Node node7 = new Node(7);
         Node node8 = new Node(4);
-        Node node9 = new Node(7);
+        Node node9 = new Node(6);
 
         node.next = node2;
         node2.next = node3;
