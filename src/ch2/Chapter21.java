@@ -5,25 +5,19 @@ import java.util.Map;
 
 public class Chapter21 {
 
-    public Node removeRepeat(Node node){
+    public void removeRepeat(Node node){
         Map<Integer, Integer> temp = new HashMap<>();
-        Node output = null;
-        Node iterator = null;
-        while (node != null){
-          if (temp.get(node.value) == null) {
-              temp.put(node.value, node.value);
-              if (output == null){
-                  output = new Node(node.value);
-                  iterator = output;
-              } else {
-                  iterator.next = new Node(node.value);
-                  iterator = iterator.next;
-              }
-
-          }
-          node = node.next;
+        Node previous = null;
+        while (node != null) {
+            if(temp.get(node.value) != null) {
+                previous.next = node.next;
+            } else {
+                temp.put(node.value, node.value);
+                previous = node;
+            }
+            node = node.next;
         }
-        return output;
+
     }
 
     public void removeRepeatWithoutTemp(Node node) {

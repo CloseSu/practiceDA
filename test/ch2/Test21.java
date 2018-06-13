@@ -42,8 +42,8 @@ public class Test21 {
         Node node = getList();
         printNodes(node);
         System.out.println("after remove repeat1");
-        Node after = ch21.removeRepeat(node);
-        printNodes(after);
+        ch21.removeRepeat(node);
+        printNodes(node);
     }
 
     @Test
