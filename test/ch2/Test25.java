@@ -44,4 +44,30 @@ public class Test25 {
         Node node2 = getNode(new int[]{3,4,5});
         testNode(node1, node2);
     }
+
+    @Test
+    public void testReverse() {
+        Node node = getNode(new int[]{3,4,5});
+        t21.printNodes(node);
+        System.out.println("reversed=======");
+        Node reversed = c25.reverseNode(node);
+        t21.printNodes(reversed);
+    }
+
+
+    @Test
+    public void testNoReverse(){
+        Node node1 = getNode(new int[]{8,7,9});
+        Node node2 = getNode(new int[]{3,4,5});
+        Node result = c25.NodeAddNoReverse(node1, node2);
+        t21.printNodes(result);
+    }
+
+    @Test
+    public void testRecursive() {
+        Node node1 = getNode(new int[]{8,7,9});
+        Node node2 = getNode(new int[]{3,4,5});
+        Node result = c25.addNodeRecursive(node1, node2, 0);
+        t21.printNodes(result);
+    }
 }
