@@ -7,7 +7,7 @@ public class Test21 {
 
     private  Chapter21 ch21 = new Chapter21();
 
-    private Node getList(){
+    public Node getList(){
         Node node = new Node(7);
         Node node2 = new Node(8);
         Node node3 = new Node(9);
