@@ -30,7 +30,7 @@ public class Test21 {
         return node;
     }
 
-    private void printNodes(Node node){
+    public void printNodes(Node node){
         while (node != null) {
             System.out.println(node.value);
             node = node.next;
