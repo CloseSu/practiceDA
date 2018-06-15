@@ -36,4 +36,10 @@ public class Test27 {
         Node node2 = getList();
         System.out.println(ch27.checkPalindrome(node, node2));
     }
+
+    @Test
+    public void tesrResursive() {
+        Node node = getList();
+        System.out.println(ch27.isPalindrome(node, 9));
+    }
 }

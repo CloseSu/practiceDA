@@ -33,4 +33,27 @@ public class Chapter27 {
         return true;
 
     }
+
+    public Result isPalindromeRecursive(Node head, int length) {
+        if (head == null || length == 0) {
+            return new Result(null, true);
+        } else if (length == 1){
+            return new Result(head.next, true);
+        } else if (length == 2) {
+            return new Result(head.next.next, head.value == head.next.value);
+        }
+        Result res = isPalindromeRecursive(head.next, length -2);
+        if (!res.result || res.node == null) {
+            return res;
+        } else {
+            res.result = head.value == res.node.value;
+            res.node = res.node.next;
+            return res;
+        }
+    }
+
+    public boolean isPalindrome(Node head, int length) {
+        Result p = isPalindromeRecursive(head, length);
+        return p.result;
+    }
 }
