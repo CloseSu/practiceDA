@@ -27,5 +27,9 @@ public class Stack {
         return top.value;
     }
 
+    public Boolean isEmpty() {
+        return top == null;
+    }
+
 
 }
