@@ -3,6 +3,7 @@ package ch4;
 import ch2.Node;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Ch44 {
@@ -31,5 +32,28 @@ public class Ch44 {
         nodeList.add(rootNode);
         getAllNodes(root, nodeList);
         return nodeList;
+    }
+
+    public ArrayList<LinkedList<TreeNode>> createLevelLinkedList(TreeNode root) {
+        ArrayList<LinkedList<TreeNode>> result = new ArrayList<>();
+        LinkedList<TreeNode> current = new LinkedList<>();
+        if (root != null) {
+            current.add(root);
+        }
+
+        while (current.size() > 0) {
+            result.add(current);
+            LinkedList<TreeNode> parents = current;
+            current = new LinkedList<>();
+            for (TreeNode parent: parents){
+                if (parent.left != null) {
+                    current.add(parent.left);
+                }
+                if (parent.right != null) {
+                    current.add(parent.right);
+                }
+            }
+        }
+        return result;
     }
 }
