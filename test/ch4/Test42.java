@@ -32,8 +32,15 @@ public class Test42 {
     }
 
     @Test
-    public void test42() {
+    public void testDFS() {
         TreeNode root = getNode();
         System.out.println(ch42.checkpath(root, new TreeNode(5)));
+    }
+
+
+    @Test
+    public void testBFS() {
+        TreeNode root = getNode();
+        System.out.println(ch42.searchBFS(root, new TreeNode(5)));
     }
 }

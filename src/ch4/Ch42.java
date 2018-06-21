@@ -1,15 +1,18 @@
 package ch4;
 
+
+import java.util.LinkedList;
+
 public class Ch42 {
 
-    public int search(TreeNode root, TreeNode target, Integer result) {
+    public int searchDFS(TreeNode root, TreeNode target, Integer result) {
         if (root == null) return result;
         result += visit(root, target);
         root.visited = true;
         if (root.adjacent != null) {
             for (TreeNode n: root.adjacent) {
                 if (n.visited == false) {
-                    result += search(n, target, result);
+                    result += searchDFS(n, target, result);
                 }
             }
         }
@@ -24,6 +27,33 @@ public class Ch42 {
     }
 
     public boolean checkpath(TreeNode root, TreeNode target) {
-        return search(root, target, 0) > 0 ;
+        return searchDFS(root, target, 0) > 0 ;
     }
+
+    public boolean searchBFS(TreeNode root, TreeNode target) {
+        LinkedList<TreeNode> q = new LinkedList<>();
+        root.visited = true;
+        q.add(root);
+        TreeNode u;
+        while (!q.isEmpty()) {
+            u = q.removeFirst();
+            if (u != null) {
+                if( u.adjacent != null) {
+                    for (TreeNode v: u.adjacent) {
+                        if (v.visited == false) {
+                            if (v.value == target.value) {
+                                return true;
+                            } else {
+                                v.visited = true;
+                                q.add(v);
+                            }
+                        }
+                    }
+                }
+                u.visited = true;
+            }
+        }
+        return false;
+    }
+
 }
