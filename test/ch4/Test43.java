@@ -11,7 +11,7 @@ public class Test43 {
     public void test43() {
         int[] data = new int[]{1,2,3,4,5,6,7,8,9};
         TreeNode root = ch43.createMinimalBST(data);
-        System.out.println(root.value);
+        root.printTree(root);
 
     }
 }

@@ -16,4 +16,18 @@ public class TreeNode {
         this.value = value;
     }
 
+
+    public void printTree(TreeNode root){
+        if (root == null) { return;}
+        System.out.print(root.value );
+        if (root.left != null){
+            System.out.print(" left: " + root.left.value);
+        }
+        if (root.right != null) {
+            System.out.print(" right: " + root.right.value);
+        }
+        System.out.println();
+        printTree(root.left);
+        printTree(root.right);
+    }
 }
