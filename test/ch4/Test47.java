@@ -6,7 +6,7 @@ public class Test47 {
 
     private Ch47 ch47 = new Ch47();
 
-    private TreeNode[] getNode() {
+    public TreeNode[] getNode() {
         TreeNode node1 = new TreeNode(1);
         TreeNode node2 = new TreeNode(2);
         TreeNode node3 = new TreeNode(3);
@@ -35,7 +35,7 @@ public class Test47 {
         node9.parent = node7;
 
 
-        return new TreeNode[]{node6, node9};
+        return new TreeNode[]{node1, node9};
     }
 
     @Test
