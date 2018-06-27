@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Ch76 {
-    public  static int remveMin(Queue<Integer> q) {
+    public   int remveMin(Queue<Integer> q) {
         int min = q.peek();
         for (Integer v: q) {
             if (min > v) {
@@ -17,13 +17,13 @@ public class Ch76 {
         return min;
     }
 
-    public static void addProducts(Queue<Integer> q, int v) {
+    public  void addProducts(Queue<Integer> q, int v) {
         q.add(v * 3);
         q.add(v * 5);
         q.add(v * 7);
     }
 
-    public static int getKthMagicNumber(int k) {
+    public  int getKthMagicNumber(int k) {
         if (k < 0) return 0;
         int val = 1;
         Queue<Integer> q = new LinkedList<>();
